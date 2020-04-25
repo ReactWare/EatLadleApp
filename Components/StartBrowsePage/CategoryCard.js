@@ -30,9 +30,9 @@ const style = StyleSheet.create({
   },
 });
 
-const CategoryCard = ({cuisine}) => {
+const CategoryCard = ({cuisine, pressFn}) => {
   return (
-    <Card style={style.cardContainer} elevation={2}>
+    <Card style={style.cardContainer} elevation={2} onPress={pressFn}>
       <Card.Cover style={style.image} source={{uri: cuisine.image}} />
       <View style={style.overlay}>
         <Headline style={style.cardText}>{cuisine.name}</Headline>

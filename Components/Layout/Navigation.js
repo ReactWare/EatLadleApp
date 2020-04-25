@@ -1,11 +1,19 @@
 import * as React from 'react';
 import {BottomNavigation, Text} from 'react-native-paper';
 import StartBrowsePage from '../StartBrowsePage/StartBrowsePage';
-import RestaurantsPage from '../RestaurantInfoPage/RestaurantInfoPage';
 import OwnerMenuView from '../OwnerMenuView/OwnerMenuView'
 import RestaurantInfoPage from '../RestaurantInfoPage/RestaurantInfoPage';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const RestaurantsInfoRoute = () => <StartBrowsePage />;
+const RestaurantsInfoRoute = () => {
+  const RestaurantInfoStack = createStackNavigator();
+  return (
+    <RestaurantInfoStack.Navigator initialRouteName="Home">
+      <RestaurantInfoStack.Screen name="Home" component={StartBrowsePage} />
+      <RestaurantInfoStack.Screen name="Restaurant" component={RestaurantInfoPage} />
+    </RestaurantInfoStack.Navigator>
+  );
+};
 
 const SearchRoute = () => <RestaurantInfoPage />;
 

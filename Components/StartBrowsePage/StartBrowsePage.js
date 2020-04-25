@@ -45,7 +45,7 @@ const cuisines = [
 ];
 
 export default class StartBrowsePage extends Component {
-  constructor({props}) {
+  constructor(props) {
     super(props);
     this.state = {
       q: '',
@@ -54,11 +54,16 @@ export default class StartBrowsePage extends Component {
   }
 
   updateSearchQuery(q) {
-    this.setState({q});
+    this.setState({ q });
+  }
+
+  pressRestaurant() {
+    const { navigation } = this.props;
+    navigation.navigate('Restaurant')
   }
 
   render() {
-    const {q} = this.state;
+    const { q } = this.state;
     return (
       <View style={style.container}>
         <Appbar.Header>
@@ -73,7 +78,10 @@ export default class StartBrowsePage extends Component {
           />
           <ScrollView style={style.scroll}>
             {cuisines.map(cuisine => (
-              <CategoryCard cuisine={cuisine} />
+              <CategoryCard
+                cuisine={cuisine}
+                pressFn={this.pressRestaurant.bind(this)}
+              />
             ))}
           </ScrollView>
         </View>
