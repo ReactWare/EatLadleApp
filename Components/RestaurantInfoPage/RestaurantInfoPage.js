@@ -17,9 +17,6 @@ const style = StyleSheet.create({
 const RestaurantPage = ({theme}) => {
   return (
     <View style={style.wrapper}>
-      <Appbar.Header>
-        <Appbar.Content title="Eat Ladle" />
-      </Appbar.Header>
       <PicGallery />
       <MenuScroll />
     </View>

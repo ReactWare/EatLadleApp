@@ -8,7 +8,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 const RestaurantsInfoRoute = () => {
   const RestaurantInfoStack = createStackNavigator();
   return (
-    <RestaurantInfoStack.Navigator initialRouteName="Home">
+    <RestaurantInfoStack.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#9c1f1f',
+        },
+        headerTintColor: '#fff',
+      }}>
       <RestaurantInfoStack.Screen name="Home" component={StartBrowsePage} />
       <RestaurantInfoStack.Screen name="Restaurant" component={RestaurantInfoPage} />
     </RestaurantInfoStack.Navigator>
@@ -25,9 +32,9 @@ export default class MyComponent extends React.Component {
     this.state = {
       index: 0,
       routes: [
-        {key: 'browse', title: 'Browse', icon: 'queue-music'},
+        {key: 'browse', title: 'Browse', icon: 'food'},
         {key: 'search', title: 'Search', icon: 'album'},
-        {key: 'owner', title: 'Owner', icon: 'history'},
+        {key: 'owner', title: 'Owner', icon: 'briefcase-outline'},
       ],
     };
     this._renderScene = BottomNavigation.SceneMap({
