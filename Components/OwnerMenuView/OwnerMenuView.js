@@ -1,20 +1,25 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
-import { Text, List, withTheme, BottomNavigation } from 'react-native-paper';
+import { Text, List, withTheme, Appbar, FAB } from 'react-native-paper';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { NavigationContainer, ThemeProvider } from '@react-navigation/native';
 
 import ListItem from './ListItem.js';
 
 const styles = StyleSheet.create({
   container: {
-    height: hp('100%'),
     width: wp('100%'),
     flex: 1,
     flexDirection: 'column',
-    paddingTop: '10%',
   },
   scrollContainer: {
     height: '65%',
+  },
+  fabButton: {
+    position: 'absolute',
+    margin: 16,
+    right: 0,
+    bottom: 0,
   }
 });
 
@@ -38,14 +43,17 @@ class OwnerMenuView extends React.Component {
 
   render() {
   // Pass Data from DB to list component later
-  const testProps = {
-    title: 'testing',
-    description: 'super coolio dish',
-    left: (props) => (<List.Icon {...props} icon="star" />),
-  }
+    const testProps = {
+      title: 'testing',
+      description: 'super coolio dish',
+      left: (props) => (<List.Icon {...props} icon="star" />),
+    }
 
     return (
       <View style={styles.container}>
+        <Appbar.Header>
+          <Appbar.Content title="Eat Ladle" />
+        </Appbar.Header>
         <List.Section>
           <List.Subheader>Menu</List.Subheader>
           <List.Accordion
@@ -76,6 +84,11 @@ class OwnerMenuView extends React.Component {
             </SafeAreaView>
           </List.Accordion>
         </List.Section>
+        <FAB
+          style={styles.fabButton}
+          icon="plus"
+          onPress={() => console.log('working button')}
+        />
       </View>
     );
   }
