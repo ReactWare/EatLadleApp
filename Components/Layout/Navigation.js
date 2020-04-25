@@ -3,10 +3,11 @@ import {BottomNavigation, Text} from 'react-native-paper';
 import StartBrowsePage from '../StartBrowsePage/StartBrowsePage';
 import RestaurantsPage from '../RestaurantInfoPage/RestaurantInfoPage';
 import OwnerMenuView from '../OwnerMenuView/OwnerMenuView'
+import RestaurantInfoPage from '../RestaurantInfoPage/RestaurantInfoPage';
 
 const RestaurantsInfoRoute = () => <StartBrowsePage />;
 
-const SearchRoute = () => <Text>Search</Text>;
+const SearchRoute = () => <RestaurantInfoPage />;
 
 const OwnerRoute = () => <OwnerMenuView />;
 
