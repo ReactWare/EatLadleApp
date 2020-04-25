@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, SafeAreaView} from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import BottomNav from './Navigation.js';
 
 const style = StyleSheet.create({
