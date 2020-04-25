@@ -194,7 +194,6 @@
 				3E7EA2FB85D39340A40322FC /* Pods-EatLadleAppTests.debug.xcconfig */,
 				80733D961EF107B98A370A55 /* Pods-EatLadleAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -309,6 +308,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -646,7 +646,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.reactware.eatladle.ios;
 				PRODUCT_NAME = EatLadleApp;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -665,7 +665,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.reactware.eatladle.ios;
 				PRODUCT_NAME = EatLadleApp;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
