@@ -2,11 +2,8 @@ import React from 'react';
 import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { Text, List, withTheme, Appbar, FAB } from 'react-native-paper';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 
 import ListItem from './ListItem.js';
-import AddItemMenu from './AddItemMenu.js';
 
 const styles = StyleSheet.create({
   container: {
