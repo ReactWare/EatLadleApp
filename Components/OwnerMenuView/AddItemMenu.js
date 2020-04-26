@@ -4,6 +4,7 @@ import { Text, Subheading, withTheme, Button } from 'react-native-paper';
 import ItemNameForm from './ItemNameForm';
 import AllergyForm from './AllergyForm';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { addItem, getItems } from './firestore';
 
 const styles = StyleSheet.create({
   submitButton: {
@@ -30,6 +31,37 @@ const styles = StyleSheet.create({
 })
 
 class AddItemMenu extends React.Component {
+  state = {
+    itemName: '',
+    category: '',
+    description: '',
+    allergies: {},
+  }
+
+  updateState = (name, value) => {
+    this.setState({
+      [name]: value
+    })
+  }
+
+  onItemAdded = (menuList) => {
+    console.log(menuList)
+  }
+
+  updateAllergy = (obj) => {
+    this.setState({
+      allergies: obj
+    })
+  }
+
+  reset = (callback) => {
+    callback()
+  }
+
+  componentDidMount() {
+    // getItems(this.onItemAdded);
+  }
+
   render() {
     const keyboardVerticalOffset = Platform.OS === 'ios' ? 95 : 0;
     return (
@@ -42,19 +74,19 @@ class AddItemMenu extends React.Component {
             <View style={styles.container}>
               <View style={styles.inner}>
                 <Subheading style={styles.titles}>Item Name</Subheading>
-                <ItemNameForm id="itemName" name="Item Name"/>
+                <ItemNameForm id="itemName" name="Item Name" updateState={this.updateState}/>
                 <Subheading style={styles.titles}>Category</Subheading>
-                <ItemNameForm  id="category" name="Category"/>
+                <ItemNameForm  id="category" name="Category" updateState={this.updateState}/>
                 <Subheading style={styles.titles}>Description</Subheading>
-                <ItemNameForm  id="description" name="Description"/>
+                <ItemNameForm  id="description" name="Description" updateState={this.updateState}/>
                 <Subheading style={styles.titles}>Allergies</Subheading>
-                <AllergyForm />
+                <AllergyForm updateAllergy={this.updateAllergy}/>
                 <View style={styles.buttonContainer}>
                   <Button
                     style={styles.submitButton}
                     icon="plus"
                     mode="contained"
-                    onPress={() => console.log('submitted')}
+                    onPress={() => console.log(this.state)}
                   >
                     Submit
                   </Button>

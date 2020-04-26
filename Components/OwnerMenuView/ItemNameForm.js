@@ -19,14 +19,22 @@ export default class TextField extends React.Component {
     };
   }
 
+  updateState = (name, value) => {
+    this.setState({
+      text: value
+    })
+    this.props.updateState(name, value)
+  }
+
   render() {
     return (
       <TextInput
+        value={this.props.value}
         mode="outlined"
         style={styles.textInput}
         label={this.props.name}
         value={this.state.text}
-        onChangeText={text => this.setState({ text })}
+        onChangeText={text => this.updateState(this.props.id, text)}
       />
     );
   }
