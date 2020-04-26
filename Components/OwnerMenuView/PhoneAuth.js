@@ -7,8 +7,9 @@ import {
   Text,
   TextInput
 } from 'react-native'
-import firebase from 'react-native-firebase'
+import auth from '@react-native-firebase/auth'
 import OwnerMenuView from './OwnerMenuView';
+
 
 class PhoneAuthScreen extends Component {
   state = {
@@ -33,8 +34,7 @@ class PhoneAuthScreen extends Component {
   handleSendCode = () => {
     // Request to send OTP
     if (this.validatePhoneNumber()) {
-      firebase
-        .auth()
+        auth()
         .signInWithPhoneNumber(this.state.phone)
         .then(confirmResult => {
           this.setState({ confirmResult })
