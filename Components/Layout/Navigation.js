@@ -6,6 +6,7 @@ import OwnerMenuView from '../OwnerMenuView/OwnerMenuView'
 import RestaurantInfoPage from '../RestaurantInfoPage/RestaurantInfoPage';
 import RestaurantListingsPage from '../RestaurantListingsPage/RestaurantListingsPage'
 import { createStackNavigator } from '@react-navigation/stack';
+import PhoneAuth from '../OwnerMenuView/PhoneAuth'
 import AddItemMenu from '../OwnerMenuView/AddItemMenu';
 import { NavigationContainer } from '@react-navigation/native';
 import EditItemMenu from '../OwnerMenuView/EditItemMenu';
@@ -32,6 +33,7 @@ const RestaurantsInfoRoute = () => {
 
 const SearchRoute = () => <RestaurantListingsPage />;
 
+const OwnerRoute = () => <PhoneAuth />;
 const OwnerRoute = () => {
   const OwnerStack = createStackNavigator();
   return (
