@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Stylesheet, StyleSheet } from 'react-native';
-import { Text, Switch } from 'react-native-paper';
+import { Text, Switch, TextInput } from 'react-native-paper';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const allergyNames = ['Vegetarian', 'Vegan',  'Gluten Free', 'Nut Free', 'Egg Free', 'Shellfish Free'];
@@ -10,10 +10,16 @@ const styles = StyleSheet.create({
   toggles: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    margin: '1%'
   },
   container: {
     width: wp('50%'),
-    left: wp('25%')
+    left: wp('25%'),
+  },
+  textBox: {
+    width: wp('50%'),
+    height: hp('5%')
   }
 })
 
@@ -49,6 +55,15 @@ export default class AllergyCheck extends React.Component {
             </View>
           );
         })}
+        <View>
+          <Text>Other</Text>
+          <TextInput 
+            style={styles.textBox}
+            mode="outlined"
+            label="Enter here"
+            value={this.state.other}
+            onChangeText={text => this.setState({other: text})}/>
+        </View>
       </View>
     );
   }
