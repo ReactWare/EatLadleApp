@@ -72,7 +72,7 @@ export default class StartBrowsePage extends Component {
       <View style={style.container}>
         <View style={style.main}>
           <Searchbar
-            placeholder="Search here betch"
+            placeholder="Search here betch!"
             onChangeText={this.updateSearchQuery}
             value={q}
             style={style.searchbar}
