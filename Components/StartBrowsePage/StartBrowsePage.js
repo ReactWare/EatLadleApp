@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
 import {Searchbar, Appbar} from 'react-native-paper';
 import CategoryCard from './CategoryCard';
+import axios from 'axios';
 
 const style = StyleSheet.create({
   container: {
@@ -57,9 +58,12 @@ export default class StartBrowsePage extends Component {
     this.setState({ q });
   }
 
-  pressRestaurant() {
+  pressRestaurant(cuisine) {
     const { navigation } = this.props;
-    navigation.navigate('Restaurant List')
+    axios.get(`http://localhost:3000/category/${cuisine}`)
+    .then(({ data }) => {
+      navigation.navigate('Restaurant List', { data }); 
+      });
   }
 
   render() {
