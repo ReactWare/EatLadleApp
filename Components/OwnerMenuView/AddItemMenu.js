@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { Text, Subheading, withTheme, Button } from 'react-native-paper';
+import ImageUpload from './ImageUpload';
 import ItemNameForm from './ItemNameForm';
 import AllergyForm from './AllergyForm';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -36,6 +37,7 @@ class AddItemMenu extends React.Component {
     category: '',
     description: '',
     allergies: {},
+    fileList: [],
   }
 
   updateState = (name, value) => {
@@ -69,6 +71,8 @@ class AddItemMenu extends React.Component {
             style={{ flex: 1 }}>
             <View style={styles.container}>
               <View style={styles.inner}>
+                <Subheading style={styles.titles}>Restaurant Image</Subheading>
+                <ImageUpload id="imageUpload" name="Image Upload" updateState={this.updateState}/>
                 <Subheading style={styles.titles}>Item Name</Subheading>
                 <ItemNameForm id="itemName" name="Item Name" updateState={this.updateState}/>
                 <Subheading style={styles.titles}>Category</Subheading>
