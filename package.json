@@ -19,6 +19,7 @@
     "@react-navigation/stack": "^5.2.13",
     "react": "16.9.0",
     "react-native": "^0.62.2",
+    "react-native-firebase": "^5.6.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-image-slider-box": "^1.0.12",
     "react-native-paper": "^3.8.0",
