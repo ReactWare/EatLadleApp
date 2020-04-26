@@ -8,11 +8,18 @@ const style = StyleSheet.create({
   wrapper: {
     flex: 1,
   },
+  topAppBar: theme => ({
+    height: 30,
+    backgroundColor: theme.colors.primary,
+  }),
 });
 
-const RestaurantPage = ({restaurantInfo}) => {
+const RestaurantPage = ({theme}) => {
   return (
     <View style={style.wrapper}>
+      <Appbar.Header>
+        <Appbar.Content title="Eat Ladle" />
+      </Appbar.Header>
       <PicGallery />
       <MenuScroll />
     </View>
