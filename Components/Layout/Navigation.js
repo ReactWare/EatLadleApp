@@ -6,6 +6,9 @@ import OwnerMenuView from '../OwnerMenuView/OwnerMenuView'
 import RestaurantInfoPage from '../RestaurantInfoPage/RestaurantInfoPage';
 import RestaurantListingsPage from '../RestaurantListingsPage/RestaurantListingsPage'
 import { createStackNavigator } from '@react-navigation/stack';
+import AddItemMenu from '../OwnerMenuView/AddItemMenu';
+import { NavigationContainer } from '@react-navigation/native';
+import EditItemMenu from '../OwnerMenuView/EditItemMenu';
 
 const headerOptions = {
   headerStyle: {
@@ -29,7 +32,18 @@ const RestaurantsInfoRoute = () => {
 
 const SearchRoute = () => <RestaurantListingsPage />;
 
-const OwnerRoute = () => <OwnerMenuView />;
+const OwnerRoute = () => {
+  const OwnerStack = createStackNavigator();
+  return (
+    <NavigationContainer independent>
+      <OwnerStack.Navigator initialRouteName="Owner Menu">
+        <OwnerStack.Screen name="Owner Menu" component={OwnerMenuView} />
+        <OwnerStack.Screen name="Add Item" component={AddItemMenu} />
+        <OwnerStack.Screen name="Edit Item" component={EditItemMenu} />
+      </OwnerStack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default class MyComponent extends React.Component {
   constructor(props) {

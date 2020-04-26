@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import { List, withTheme } from 'react-native-paper';
 
 const ListItem = (props) => {
@@ -8,6 +7,7 @@ const ListItem = (props) => {
       title={props.title}
       description={props.description}
       left={props.left}
+      onPress={() => console.log('CLICK')}
     />
   );
 };
