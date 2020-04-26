@@ -18,10 +18,9 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* EatLadleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* EatLadleAppTests.m */; };
+		8E8AE0E92455C596004DA058 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E8AE0E82455C596004DA058 /* GoogleService-Info.plist */; };
 		922312384C5B27E1429FC5B4 /* libPods-EatLadleApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EFB6D7EF36316774A9C2FB /* libPods-EatLadleApp-tvOS.a */; };
 		CA8230E5CEBD9E741B6A5F5B /* libPods-EatLadleAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EFACEB4AA49CA3372A507C /* libPods-EatLadleAppTests.a */; };
-		E7D831712453FCB400B0C83A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7D831702453FCB400B0C83A /* GoogleService-Info.plist */; };
-		E7D831722453FCB400B0C83A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7D831702453FCB400B0C83A /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,10 +63,10 @@
 		6B4D6E4522DE1A7E978A6A04 /* Pods-EatLadleApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EatLadleApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EatLadleApp-tvOSTests/Pods-EatLadleApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		80733D961EF107B98A370A55 /* Pods-EatLadleAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EatLadleAppTests.release.xcconfig"; path = "Target Support Files/Pods-EatLadleAppTests/Pods-EatLadleAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		84EFACEB4AA49CA3372A507C /* libPods-EatLadleAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EatLadleAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E8AE0E82455C596004DA058 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B8A4041D4B0C06A84325B7F1 /* Pods-EatLadleApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EatLadleApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-EatLadleApp-tvOS/Pods-EatLadleApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		CA31E06437EA9B20B71E49A8 /* Pods-EatLadleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EatLadleApp.debug.xcconfig"; path = "Target Support Files/Pods-EatLadleApp/Pods-EatLadleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E5E7EDB524E4B6B6BE2DC125 /* Pods-EatLadleApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EatLadleApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-EatLadleApp-tvOS/Pods-EatLadleApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		E7D831702453FCB400B0C83A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -162,7 +161,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				E7D831702453FCB400B0C83A /* GoogleService-Info.plist */,
+				8E8AE0E82455C596004DA058 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* EatLadleApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* EatLadleAppTests */,
@@ -334,7 +333,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7D831722453FCB400B0C83A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,8 +341,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				8E8AE0E92455C596004DA058 /* GoogleService-Info.plist in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				E7D831712453FCB400B0C83A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +385,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EatLadleApp/Pods-EatLadleApp-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -403,10 +402,12 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates-Cpp.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
@@ -423,6 +424,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Cpp.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
