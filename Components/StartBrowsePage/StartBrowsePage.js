@@ -63,7 +63,7 @@ export default class StartBrowsePage extends Component {
 
   pressRestaurant() {
     const { navigation } = this.props;
-    navigation.navigate('Restaurant');
+    navigation.navigate('Restaurant List');
   }
 
   render() {
