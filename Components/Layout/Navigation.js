@@ -38,9 +38,9 @@ export default class MyComponent extends React.Component {
     this.state = {
       index: 1,
       routes: [
-        {key: 'browse', title: 'Browse', icon: 'queue-music'},
+        {key: 'browse', title: 'Browse', icon: 'food'},
         {key: 'search', title: 'Search', icon: 'album'},
-        {key: 'owner', title: 'Owner', icon: 'history'},
+        {key: 'owner', title: 'Owner', icon: 'briefcase-outline'},
       ],
     };
     this._renderScene = BottomNavigation.SceneMap({
