@@ -7,7 +7,7 @@ import ListItem from './ListItem.js';
 class ListGroup extends React.Component {
   constructor(props) {
     super(props);
-
+// Pass an array of items for the group through props
     this.state = {
       expanded: false,
     }
@@ -36,6 +36,7 @@ class ListGroup extends React.Component {
           title={testProps.title}
           description={testProps.description}
           left={testProps.left}
+          navigation={this.props.navigation}
         />
       </List.Accordion>
     )

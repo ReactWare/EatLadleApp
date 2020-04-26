@@ -18,8 +18,9 @@ const styles = StyleSheet.create({
     left: wp('25%'),
   },
   textBox: {
-    width: wp('50%'),
-    height: hp('5%')
+    width: wp('85%'),
+    height: hp('5.5%'),
+    alignSelf: 'center'
   }
 })
 
@@ -59,7 +60,8 @@ export default class AllergyForm extends React.Component {
           <TextInput 
             style={styles.textBox}
             mode="outlined"
-            label="Enter here"
+            label="Enter Other Allergy Info Here"
+            multiline={true}
             value={this.state.other}
             onChangeText={text => this.setState({other: text})}/>
         </View>

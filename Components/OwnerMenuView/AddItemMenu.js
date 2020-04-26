@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { Text, Subheading, withTheme, Button } from 'react-native-paper';
 import ItemNameForm from './ItemNameForm';
 import AllergyForm from './AllergyForm';
@@ -11,36 +11,58 @@ const styles = StyleSheet.create({
     height: hp('4.5%'),
     justifyContent: 'center',
     alignSelf: 'center',
-    margin: '5%'
   },
   titles: {
-    alignItems: 'center'
+    alignItems: 'center',
+    alignSelf: 'center',
+    fontWeight: 'bold',
   },
   container: {
     flex: 1,
+  },
+  buttonContainer: {
+    margin: '5%'
+  },
+  inner: {
+    flex: 1,
+    justifyContent: 'flex-end'
   }
 })
 
 class AddItemMenu extends React.Component {
   render() {
+    const keyboardVerticalOffset = Platform.OS === 'ios' ? 95 : 0;
     return (
-      <View styles={styles.container}>
-        <Subheading styles={styles.titles}>Item Name</Subheading>
-        <ItemNameForm id="Item Nameeeee"/>
-        <Subheading styles={styles.titles}>Category</Subheading>
-        <ItemNameForm />
-        <Subheading styles={styles.titles}>Description</Subheading>
-        <ItemNameForm />
-        <Subheading>Allergies</Subheading>
-        <AllergyForm />
-        <Button
-          style={styles.submitButton}
-          icon="plus"
-          mode="contained"
-          onPress={() => console.log('submitted')}
-        >
-          Submit
-        </Button>
+      <View style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }}>
+          <KeyboardAvoidingView
+            behavior='padding'
+            keyboardVerticalOffset={keyboardVerticalOffset}
+            style={{ flex: 1 }}>
+            <View style={styles.container}>
+              <View style={styles.inner}>
+                <Subheading style={styles.titles}>Item Name</Subheading>
+                <ItemNameForm id="itemName" name="Item Name"/>
+                <Subheading style={styles.titles}>Category</Subheading>
+                <ItemNameForm  id="category" name="Category"/>
+                <Subheading style={styles.titles}>Description</Subheading>
+                <ItemNameForm  id="description" name="Description"/>
+                <Subheading style={styles.titles}>Allergies</Subheading>
+                <AllergyForm />
+                <View style={styles.buttonContainer}>
+                  <Button
+                    style={styles.submitButton}
+                    icon="plus"
+                    mode="contained"
+                    onPress={() => console.log('submitted')}
+                  >
+                    Submit
+                  </Button>
+                </View>
+              </View>
+            </View>
+          </KeyboardAvoidingView>
+        </ScrollView>
       </View>
     )
   }

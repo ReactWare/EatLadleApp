@@ -4,8 +4,6 @@ import { Text, List, withTheme, Appbar, FAB } from 'react-native-paper';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import ListGroup from './ListGroup';
 
-import ListItem from './ListItem.js';
-
 const styles = StyleSheet.create({
   container: {
     height: hp('100%'),
@@ -14,7 +12,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   scrollContainer: {
-    height: '65%',
+    height: '95%',
   },
   fabButton: {
     position: 'absolute',
@@ -33,25 +31,8 @@ class OwnerMenuView extends React.Component {
     };
   }
 
-  expandEntree = () => {
-    this.setState({
-      entreeList: !this.state.entreeList,
-    });
-  };
-
-  expandSides = () => {
-    this.setState({
-      sidesList: !this.state.sidesList,
-    });
-  };
-
   render() {
   // Pass Data from DB to list component later
-    const testProps = {
-      title: 'testing',
-      description: 'super coolio dish',
-      left: (props) => (<List.Icon {...props} icon="" />)
-    }
 
     return (
       <View style={styles.container}>
@@ -61,7 +42,30 @@ class OwnerMenuView extends React.Component {
               <Appbar.Content title="Eat Ladle" />
             </Appbar.Header>
             <List.Section>
-              <ListGroup title="Entreeeee" icon="food" />
+              <ListGroup
+                title="Entree"
+                icon="food"
+                navigation={this.props.navigation}
+                list=" INSERT DATA ARRAY HERE "
+              />
+              <ListGroup
+                title="Sides"
+                icon="food-croissant"
+                navigation={this.props.navigation}
+                list=" INSERT DATA ARRAY HERE "
+              />
+              <ListGroup
+                title="Drinks"
+                icon="cup-water"
+                navigation={this.props.navigation}
+                list=" INSERT DATA ARRAY HERE "
+              />
+              <ListGroup
+                title="Other"
+                icon="food-apple"
+                navigation={this.props.navigation}
+                list=" INSERT DATA ARRAY HERE "
+              />
             </List.Section>
           </ScrollView>
         </SafeAreaView>
