@@ -20,7 +20,7 @@ const RestaurantListingsPage = ({ data, navigation }) => {
     <ScrollView style={style.container}>
       {[1,2,3,4,5].map((item) => (
         <Card style={style.cardContainer} elevation={item} onPress={() => navigation.navigate('Restaurant')}>
-            <Title>Asian Restaurant #{item}</Title>
+            <Title>Asian Restaurant {item}</Title>
         </Card>
       ))}
     </ScrollView>
