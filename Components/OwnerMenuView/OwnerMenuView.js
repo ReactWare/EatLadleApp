@@ -3,6 +3,7 @@ import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { Text, List, withTheme, Appbar, FAB } from 'react-native-paper';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import ListGroup from './ListGroup';
+import { addItem, getItems } from './firestore';
 
 const styles = StyleSheet.create({
   container: {
@@ -26,9 +27,18 @@ class OwnerMenuView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      entreeList: false,
-      sidesList: false,
+      entreeList: [],
     };
+  }
+
+  updateState = (list) => {
+    this.setState({
+      entreeList: list
+    })
+  }
+
+  componentDidMount() {
+    getItems(this.updateState)
   }
 
   render() {
@@ -46,25 +56,25 @@ class OwnerMenuView extends React.Component {
                 title="Entree"
                 icon="food"
                 navigation={this.props.navigation}
-                list=" INSERT DATA ARRAY HERE "
+                list={this.state.entreeList}
               />
               <ListGroup
                 title="Sides"
                 icon="food-croissant"
                 navigation={this.props.navigation}
-                list=" INSERT DATA ARRAY HERE "
+                list={this.state.entreeList}
               />
               <ListGroup
                 title="Drinks"
                 icon="cup-water"
                 navigation={this.props.navigation}
-                list=" INSERT DATA ARRAY HERE "
+                list={this.state.entreeList}
               />
               <ListGroup
                 title="Other"
                 icon="food-apple"
                 navigation={this.props.navigation}
-                list=" INSERT DATA ARRAY HERE "
+                list={this.state.entreeList}
               />
             </List.Section>
           </ScrollView>

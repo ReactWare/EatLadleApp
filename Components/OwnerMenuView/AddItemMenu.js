@@ -54,10 +54,6 @@ class AddItemMenu extends React.Component {
     })
   }
 
-  reset = (callback) => {
-    callback()
-  }
-
   componentDidMount() {
     // getItems(this.onItemAdded);
   }
