@@ -21,10 +21,12 @@ const theme = {
 
 export default function Main() {
   return (
-    <PaperProvider theme={theme}>
-      <App theme={theme} />
-    </PaperProvider>
-);
+    <NavigationContainer>
+      <PaperProvider theme={theme}>
+        <App theme={theme} />
+      </PaperProvider>
+    </NavigationContainer>
+  );
 }
 
 AppRegistry.registerComponent(appName, () => Main);
