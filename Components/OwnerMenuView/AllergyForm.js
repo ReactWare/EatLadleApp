@@ -3,7 +3,8 @@ import { View, Stylesheet, StyleSheet } from 'react-native';
 import { Text, Switch } from 'react-native-paper';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-const allergies = ['Vegetarian', 'Vegan',  'Gluten Free', 'Nut Free', 'Egg Free', 'Shellfish Free'];
+const allergyNames = ['Vegetarian', 'Vegan',  'Gluten Free', 'Nut Free', 'Egg Free', 'Shellfish Free'];
+const allergies = ['vegetarian', 'vegan', 'glutenFree', 'nutFree', 'eggFree', 'shellfishFree']
 
 const styles = StyleSheet.create({
   toggles: {
@@ -27,17 +28,24 @@ export default class AllergyCheck extends React.Component {
       shellfishFree: false,
       glutenFree: false,
       other: '',
+      toggle: false,
     }
+  }
+
+  onToggle = (item) => {
+    this.setState({
+      [item]: !this.state[item]
+    })
   }
 
   render() {
     return (
       <View style={styles.container}>
-        {allergies.map(item => {
+        {allergies.map((item, i) => {
           return (
-            <View  style={styles.toggles}>
-              <Text>{item}</Text>
-              <Switch />
+            <View style={styles.toggles}>
+              <Text>{allergyNames[i]}</Text>
+              <Switch value={this.state[item]} onValueChange={() => this.onToggle(item)} />
             </View>
           );
         })}
