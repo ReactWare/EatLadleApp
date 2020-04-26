@@ -3,8 +3,7 @@ import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { Text, List, withTheme, Appbar, FAB } from 'react-native-paper';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import ListGroup from './ListGroup';
-
-import ListItem from './ListItem.js';
+import { addItem, getItems } from './firestore';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,7 +13,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   scrollContainer: {
-    height: '65%',
+    height: '95%',
   },
   fabButton: {
     position: 'absolute',
@@ -28,30 +27,22 @@ class OwnerMenuView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      entreeList: false,
-      sidesList: false,
+      entreeList: [],
     };
   }
 
-  expandEntree = () => {
+  updateState = (list) => {
     this.setState({
-      entreeList: !this.state.entreeList,
-    });
-  };
+      entreeList: list
+    })
+  }
 
-  expandSides = () => {
-    this.setState({
-      sidesList: !this.state.sidesList,
-    });
-  };
+  componentDidMount() {
+    getItems(this.updateState)
+  }
 
   render() {
   // Pass Data from DB to list component later
-    const testProps = {
-      title: 'testing',
-      description: 'super coolio dish',
-      left: (props) => (<List.Icon {...props} icon="" />)
-    }
 
     return (
       <View style={styles.container}>
@@ -61,7 +52,30 @@ class OwnerMenuView extends React.Component {
               <Appbar.Content title="Eat Ladle" />
             </Appbar.Header>
             <List.Section>
-              <ListGroup title="Entreeeee" icon="food" />
+              <ListGroup
+                title="Entree"
+                icon="food"
+                navigation={this.props.navigation}
+                list={this.state.entreeList}
+              />
+              <ListGroup
+                title="Sides"
+                icon="food-croissant"
+                navigation={this.props.navigation}
+                list={this.state.entreeList}
+              />
+              <ListGroup
+                title="Drinks"
+                icon="cup-water"
+                navigation={this.props.navigation}
+                list={this.state.entreeList}
+              />
+              <ListGroup
+                title="Other"
+                icon="food-apple"
+                navigation={this.props.navigation}
+                list={this.state.entreeList}
+              />
             </List.Section>
           </ScrollView>
         </SafeAreaView>

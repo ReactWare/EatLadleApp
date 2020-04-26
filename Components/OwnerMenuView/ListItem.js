@@ -1,13 +1,13 @@
 import React from 'react';
 import { List, withTheme } from 'react-native-paper';
 
-const ListItem = (props) => {
+const ListItem = ({ title, description, left, navigation }) => {
   return (
     <List.Item
-      title={props.title}
-      description={props.description}
-      left={props.left}
-      onPress={() => console.log('CLICK')}
+      title={title}
+      description={description}
+      left={left}
+      onPress={() => navigation.navigate("Edit Item")}
     />
   );
 };

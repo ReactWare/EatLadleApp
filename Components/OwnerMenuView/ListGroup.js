@@ -7,7 +7,7 @@ import ListItem from './ListItem.js';
 class ListGroup extends React.Component {
   constructor(props) {
     super(props);
-
+// Pass an array of items for the group through props
     this.state = {
       expanded: false,
     }
@@ -19,12 +19,11 @@ class ListGroup extends React.Component {
     })
   }
 
+  componentDidMount() {
+    // console.log(this.props.list)
+  }
+
   render() {
-    const testProps = {
-      title: 'testing',
-      description: 'super coolio dish',
-      left: (props) => (<List.Icon {...props} icon="" />)
-    };
     return (
       <List.Accordion
         title={this.props.title}
@@ -32,11 +31,16 @@ class ListGroup extends React.Component {
         expanded={this.state.expanded}
         onPress={this.expandMenu}
       >
-        <ListItem
-          title={testProps.title}
-          description={testProps.description}
-          left={testProps.left}
-        />
+        {this.props.list.map(item => {
+          return (
+            <ListItem
+              title={item.name}
+              description={item.description}
+              left=""
+              navigation={this.props.navigation}
+            />
+          )
+        })}
       </List.Accordion>
     )
   }
