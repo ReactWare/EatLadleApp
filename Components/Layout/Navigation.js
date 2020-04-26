@@ -1,26 +1,36 @@
 import * as React from 'react';
 import {BottomNavigation, Text} from 'react-native-paper';
+import {NavigationContainer} from '@react-navigation/native';
 import StartBrowsePage from '../StartBrowsePage/StartBrowsePage';
-import OwnerMenuView from '../OwnerMenuView/OwnerMenuView';
+import OwnerMenuView from '../OwnerMenuView/OwnerMenuView'
 import RestaurantInfoPage from '../RestaurantInfoPage/RestaurantInfoPage';
+import RestaurantListingsPage from '../RestaurantListingsPage/RestaurantListingsPage'
 import { createStackNavigator } from '@react-navigation/stack';
 import AddItemMenu from '../OwnerMenuView/AddItemMenu';
 import { NavigationContainer } from '@react-navigation/native';
 import EditItemMenu from '../OwnerMenuView/EditItemMenu';
 
+const headerOptions = {
+  headerStyle: {
+    backgroundColor: '#9c1f1f',
+  },
+  headerTintColor: '#fff',
+}
+
 const RestaurantsInfoRoute = () => {
   const RestaurantInfoStack = createStackNavigator();
   return (
     <NavigationContainer independent>
-      <RestaurantInfoStack.Navigator initialRouteName="Home">
+      <RestaurantInfoStack.Navigator initialRouteName="Home" screenOptions={headerOptions}>
         <RestaurantInfoStack.Screen name="Home" component={StartBrowsePage} />
         <RestaurantInfoStack.Screen name="Restaurant" component={RestaurantInfoPage} />
+        <RestaurantInfoStack.Screen name="Restaurant List" component={RestaurantListingsPage} />
       </RestaurantInfoStack.Navigator>
     </NavigationContainer>
   );
 };
 
-const SearchRoute = () => <RestaurantInfoPage />;
+const SearchRoute = () => <RestaurantListingsPage />;
 
 const OwnerRoute = () => {
   const OwnerStack = createStackNavigator();
@@ -39,7 +49,7 @@ export default class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      index: 0,
+      index: 1,
       routes: [
         {key: 'browse', title: 'Browse', icon: 'queue-music'},
         {key: 'search', title: 'Search', icon: 'album'},
