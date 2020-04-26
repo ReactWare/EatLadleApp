@@ -2,16 +2,13 @@ import React from 'react';
 import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { Text, List, withTheme, Appbar, FAB } from 'react-native-paper';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-<<<<<<< HEAD
 import ListGroup from './ListGroup';
-=======
-import { NavigationContainer, ThemeProvider } from '@react-navigation/native';
->>>>>>> master
 
 import ListItem from './ListItem.js';
 
 const styles = StyleSheet.create({
   container: {
+    height: hp('100%'),
     width: wp('100%'),
     flex: 1,
     flexDirection: 'column',
@@ -28,10 +25,13 @@ const styles = StyleSheet.create({
 });
 
 class OwnerMenuView extends React.Component {
-  state = {
-    entreeList: false,
-    sidesList: false,
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      entreeList: false,
+      sidesList: false,
+    };
+  }
 
   expandEntree = () => {
     this.setState({
@@ -68,7 +68,7 @@ class OwnerMenuView extends React.Component {
         <FAB
           style={styles.fabButton}
           icon="plus"
-          onPress={() => console.log('working button')}
+          onPress={() => this.props.navigation.navigate("Add Item")}
         />
       </View>
     );
