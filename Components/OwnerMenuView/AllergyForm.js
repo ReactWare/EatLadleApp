@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Stylesheet, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Text, Switch, TextInput } from 'react-native-paper';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export default class AllergyCheck extends React.Component {
+export default class AllergyForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
