@@ -1,35 +1,21 @@
 import * as React from 'react';
 import {BottomNavigation, Text} from 'react-native-paper';
-import {NavigationContainer} from '@react-navigation/native';
 import StartBrowsePage from '../StartBrowsePage/StartBrowsePage';
 import OwnerMenuView from '../OwnerMenuView/OwnerMenuView'
 import RestaurantInfoPage from '../RestaurantInfoPage/RestaurantInfoPage';
 import { createStackNavigator } from '@react-navigation/stack';
-import RestaurantListingsPage from '../RestaurantListingsPage/RestaurantListingsPage'
-
-const headerStyle = {
-  headerStyle: {
-    backgroundColor: '#9c1f1f',
-  },
-  headerTintColor: '#fff',
-}
 
 const RestaurantsInfoRoute = () => {
   const RestaurantInfoStack = createStackNavigator();
   return (
-    <NavigationContainer independent>
-      <RestaurantInfoStack.Navigator
-        initialRouteName="Home"
-        screenOptions={headerStyle}>
-        <RestaurantInfoStack.Screen name="Home" component={StartBrowsePage} />
-        <RestaurantInfoStack.Screen name="Restaurant" component={RestaurantInfoPage} />
-        <RestaurantInfoStack.Screen name="Restaurant List" component={RestaurantListingsPage} />
-      </RestaurantInfoStack.Navigator>
-    </NavigationContainer>
+    <RestaurantInfoStack.Navigator initialRouteName="Home">
+      <RestaurantInfoStack.Screen name="Home" component={StartBrowsePage} />
+      <RestaurantInfoStack.Screen name="Restaurant" component={RestaurantInfoPage} />
+    </RestaurantInfoStack.Navigator>
   );
 };
 
-const SearchRoute = () => <RestaurantListingsPage />;
+const SearchRoute = () => <RestaurantInfoPage />;
 
 const OwnerRoute = () => <OwnerMenuView />;
 
@@ -37,11 +23,11 @@ export default class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      index: 1,
+      index: 0,
       routes: [
-        {key: 'browse', title: 'Browse', icon: 'food'},
+        {key: 'browse', title: 'Browse', icon: 'queue-music'},
         {key: 'search', title: 'Search', icon: 'album'},
-        {key: 'owner', title: 'Owner', icon: 'briefcase-outline'},
+        {key: 'owner', title: 'Owner', icon: 'history'},
       ],
     };
     this._renderScene = BottomNavigation.SceneMap({
