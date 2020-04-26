@@ -1,23 +1,37 @@
 import * as React from 'react';
 import {BottomNavigation, Text} from 'react-native-paper';
 import StartBrowsePage from '../StartBrowsePage/StartBrowsePage';
-import OwnerMenuView from '../OwnerMenuView/OwnerMenuView'
+import OwnerMenuView from '../OwnerMenuView/OwnerMenuView';
 import RestaurantInfoPage from '../RestaurantInfoPage/RestaurantInfoPage';
 import { createStackNavigator } from '@react-navigation/stack';
+import AddItemMenu from '../OwnerMenuView/AddItemMenu';
+import { NavigationContainer } from '@react-navigation/native';
 
 const RestaurantsInfoRoute = () => {
   const RestaurantInfoStack = createStackNavigator();
   return (
-    <RestaurantInfoStack.Navigator initialRouteName="Home">
-      <RestaurantInfoStack.Screen name="Home" component={StartBrowsePage} />
-      <RestaurantInfoStack.Screen name="Restaurant" component={RestaurantInfoPage} />
-    </RestaurantInfoStack.Navigator>
+    <NavigationContainer independent={true}>
+      <RestaurantInfoStack.Navigator initialRouteName="Home">
+        <RestaurantInfoStack.Screen name="Home" component={StartBrowsePage} />
+        <RestaurantInfoStack.Screen name="Restaurant" component={RestaurantInfoPage} />
+      </RestaurantInfoStack.Navigator>
+    </NavigationContainer>
   );
 };
 
 const SearchRoute = () => <RestaurantInfoPage />;
 
-const OwnerRoute = () => <OwnerMenuView />;
+const OwnerRoute = () => {
+  const OwnerStack = createStackNavigator();
+  return (
+    <NavigationContainer independent={true}>
+      <OwnerStack.Navigator initialRouteName="Owner Menu">
+        <OwnerStack.Screen name="Owner Menu" component={OwnerMenuView} />
+        <OwnerStack.Screen name="Add Item" component={AddItemMenu} />
+      </OwnerStack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default class MyComponent extends React.Component {
   constructor(props) {
