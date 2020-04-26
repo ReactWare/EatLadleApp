@@ -6,6 +6,7 @@ import OwnerMenuView from '../OwnerMenuView/OwnerMenuView'
 import RestaurantInfoPage from '../RestaurantInfoPage/RestaurantInfoPage';
 import RestaurantListingsPage from '../RestaurantListingsPage/RestaurantListingsPage'
 import { createStackNavigator } from '@react-navigation/stack';
+import PhoneAuth from '../OwnerMenuView/PhoneAuth'
 
 const headerOptions = {
   headerStyle: {
@@ -29,7 +30,7 @@ const RestaurantsInfoRoute = () => {
 
 const SearchRoute = () => <RestaurantListingsPage />;
 
-const OwnerRoute = () => <OwnerMenuView />;
+const OwnerRoute = () => <PhoneAuth />;
 
 export default class MyComponent extends React.Component {
   constructor(props) {
