@@ -11,7 +11,7 @@ import EditItemMenu from '../OwnerMenuView/EditItemMenu';
 const RestaurantsInfoRoute = () => {
   const RestaurantInfoStack = createStackNavigator();
   return (
-    <NavigationContainer independent={true}>
+    <NavigationContainer independent>
       <RestaurantInfoStack.Navigator initialRouteName="Home">
         <RestaurantInfoStack.Screen name="Home" component={StartBrowsePage} />
         <RestaurantInfoStack.Screen name="Restaurant" component={RestaurantInfoPage} />
@@ -25,7 +25,7 @@ const SearchRoute = () => <RestaurantInfoPage />;
 const OwnerRoute = () => {
   const OwnerStack = createStackNavigator();
   return (
-    <NavigationContainer independent={true}>
+    <NavigationContainer independent>
       <OwnerStack.Navigator initialRouteName="Owner Menu">
         <OwnerStack.Screen name="Owner Menu" component={OwnerMenuView} />
         <OwnerStack.Screen name="Add Item" component={AddItemMenu} />

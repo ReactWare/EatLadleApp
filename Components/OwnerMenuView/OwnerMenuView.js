@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { Text, List, withTheme, Appbar, FAB } from 'react-native-paper';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import ListGroup from './ListGroup';
 
 import ListItem from './ListItem.js';
 
@@ -60,27 +61,7 @@ class OwnerMenuView extends React.Component {
               <Appbar.Content title="Eat Ladle" />
             </Appbar.Header>
             <List.Section>
-              <List.Subheader>Menu</List.Subheader>
-              <List.Accordion
-                title="Entrée"
-                name="entreeList"
-                left={props => <List.Icon {...props} icon="food" />}
-                expanded={this.state.entreeList}
-                onPress={this.expandEntree}>
-                <ListItem
-                  title={testProps.title}
-                  description={testProps.description}
-                  left={testProps.left}
-                />
-              </List.Accordion>
-              <List.Accordion
-                title="Sides"
-                name="sidesList"
-                left={props => <List.Icon {...props} icon="food-apple" />}
-                expanded={this.state.sidesList}
-                onPress={this.expandSides}>
-                <List.Item title="First item" description="Item description" />
-              </List.Accordion>
+              <ListGroup title="Entreeeee" icon="food" />
             </List.Section>
           </ScrollView>
         </SafeAreaView>
