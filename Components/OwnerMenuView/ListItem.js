@@ -8,6 +8,7 @@ const ListItem = (props) => {
       title={props.title}
       description={props.description}
       left={props.left}
+      onPress={() => console.log('CLICK')}
     />
   );
 };

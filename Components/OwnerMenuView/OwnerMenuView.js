@@ -52,44 +52,41 @@ class OwnerMenuView extends React.Component {
     const testProps = {
       title: 'testing',
       description: 'super coolio dish',
-      left: (props) => (<List.Icon {...props} icon="star" />),
+      left: (props) => (<List.Icon {...props} icon="" />)
     }
 
     return (
       <View style={styles.container}>
-        <Appbar.Header>
-          <Appbar.Content title="Eat Ladle" />
-        </Appbar.Header>
-        <List.Section>
-          <List.Subheader>Menu</List.Subheader>
-          <List.Accordion
-            title="Entrée"
-            name="entreeList"
-            left={props => <List.Icon {...props} icon="food" />}
-            expanded={this.state.entreeList}
-            onPress={this.expandEntree}>
-            <SafeAreaView style={styles.scrollContainer}>
-              <ScrollView>
-                <ListItem 
-                  title={testProps.title} 
+        <SafeAreaView style={styles.scrollContainer}>
+          <ScrollView style={styles.scrollContainer}>
+            <Appbar.Header>
+              <Appbar.Content title="Eat Ladle" />
+            </Appbar.Header>
+            <List.Section>
+              <List.Subheader>Menu</List.Subheader>
+              <List.Accordion
+                title="Entrée"
+                name="entreeList"
+                left={props => <List.Icon {...props} icon="food" />}
+                expanded={this.state.entreeList}
+                onPress={this.expandEntree}>
+                <ListItem
+                  title={testProps.title}
                   description={testProps.description}
-                  left={testProps.left} />
-              </ScrollView>
-            </SafeAreaView>
-          </List.Accordion>
-          <List.Accordion
-            title="Sides"
-            name="sidesList"
-            left={props => <List.Icon {...props} icon="food" />}
-            expanded={this.state.sidesList}
-            onPress={this.expandSides}>
-            <SafeAreaView style={styles.scrollContainer}>
-              <ScrollView>
+                  left={testProps.left}
+                />
+              </List.Accordion>
+              <List.Accordion
+                title="Sides"
+                name="sidesList"
+                left={props => <List.Icon {...props} icon="food-apple" />}
+                expanded={this.state.sidesList}
+                onPress={this.expandSides}>
                 <List.Item title="First item" description="Item description" />
-              </ScrollView>
-            </SafeAreaView>
-          </List.Accordion>
-        </List.Section>
+              </List.Accordion>
+            </List.Section>
+          </ScrollView>
+        </SafeAreaView>
         <FAB
           style={styles.fabButton}
           icon="plus"

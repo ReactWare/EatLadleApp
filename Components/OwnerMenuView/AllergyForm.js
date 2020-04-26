@@ -34,7 +34,6 @@ export default class AllergyCheck extends React.Component {
       shellfishFree: false,
       glutenFree: false,
       other: '',
-      toggle: false,
     }
   }
 
