@@ -1,26 +1,35 @@
 import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
-import {Card, Paragraph, Title} from 'react-native-paper';
+import {Card, Paragraph, Title, Caption} from 'react-native-paper';
 
 const style = StyleSheet.create({
   container: {
     backgroundColor: '#e1e1e1',
   },
   cardContainer: {
-    height: 100,
+    height: 140,
     width: '100%',
     marginTop: 10,
     justifyContent: 'center',
-    paddingLeft: 10,
+    paddingLeft: 20,
   }
 })
 
-const RestaurantListingsPage = ({ data, navigation }) => {
+const RestaurantListingsPage = ({ route, navigation }) => {
+  const data = route.params?.data;
   return (
     <ScrollView style={style.container}>
-      {[1,2,3,4,5].map((item) => (
-        <Card style={style.cardContainer} elevation={item} onPress={() => navigation.navigate('Restaurant')}>
-            <Title>Asian Restaurant {item}</Title>
+      {data.map((item, index) => (
+        <Card 
+          style={style.cardContainer}
+          elevation={index + 1}
+          onPress={() => navigation.navigate('Restaurant', { restaurantData: item})}
+        >
+          <Title>{item.name}</Title>
+          <Caption>{`Mon-Sun, ${item.hours.monday.open}a-${item.hours.monday.close}p`}</Caption>
+          <Paragraph>{item.location.address}</Paragraph>
+          <Paragraph>{`${item.location.city}, ${item.location.state} ${item.location.zipCode}`}</Paragraph>
+          <Paragraph>{item.phoneNumber}</Paragraph>
         </Card>
       ))}
     </ScrollView>

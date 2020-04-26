@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Card, Headline} from 'react-native-paper';
 
+
 const style = StyleSheet.create({
   cardContainer: {
     width: '90%',
@@ -32,7 +33,7 @@ const style = StyleSheet.create({
 
 const CategoryCard = ({cuisine, pressFn}) => {
   return (
-    <Card style={style.cardContainer} elevation={2} onPress={pressFn}>
+    <Card style={style.cardContainer} elevation={2} onPress={() => pressFn(cuisine.name)}>
       <Card.Cover style={style.image} source={{uri: cuisine.image}} />
       <View style={style.overlay}>
         <Headline style={style.cardText}>{cuisine.name}</Headline>

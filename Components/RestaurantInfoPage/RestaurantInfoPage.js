@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Appbar, withTheme} from 'react-native-paper';
 import PicGallery from './PicGallery';
@@ -10,11 +10,18 @@ const style = StyleSheet.create({
   },
 });
 
-const RestaurantPage = ({theme}) => {
+const RestaurantPage = ({theme, route}) => {
+  const [kit, setKit] = useState(0)
+  const data = route.params?.restaurantData;
+
+  const changeGallery = index => {
+    setKit(index);
+  };
+
   return (
     <View style={style.wrapper}>
-      <PicGallery />
-      <MenuScroll />
+      <PicGallery data={data} kitIndex={kit} />
+      <MenuScroll data={data} pressFn={changeGallery} />
     </View>
   );
 };

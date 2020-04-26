@@ -2,20 +2,25 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Card, List, Paragraph} from 'react-native-paper';
 
+
 const style = StyleSheet.create({
   card: {
     marginBottom: 2,
   },
 });
 
-const MenuScroll = ({item}) => (
+const MenuScroll = ({ item, pressFn, index, data }) => (
   <List.Accordion
-    title={`Food Option ${item}`}
-    left={props => <List.Icon {...props} icon="folder" />}>
+    title={item.name}
+    left={props => <List.Icon {...props} icon="folder" />}
+    onPress={() => pressFn(index)}
+  >
     <Card style={style.card}>
-      <Card.Title title="Carne Asada Fries" />
       <Card.Content>
-        <Paragraph>I want this shit so bad</Paragraph>
+        {item.content.map((itemIndex) => (
+          <Paragraph>{`x   ${data.menu.items[itemIndex].name}`}</Paragraph>
+        ))
+        }
       </Card.Content>
     </Card>
   </List.Accordion>
