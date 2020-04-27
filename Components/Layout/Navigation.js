@@ -63,7 +63,7 @@ export default class MyComponent extends React.Component {
     };
     this._renderScene = BottomNavigation.SceneMap({
       browse: RestaurantsInfoRoute,
-      search: SearchRoute,
+
       owner: OwnerRoute,
     });
     this._handleIndexChange = this._handleIndexChange.bind(this);
