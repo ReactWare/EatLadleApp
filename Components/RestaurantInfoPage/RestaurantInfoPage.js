@@ -1,6 +1,7 @@
+/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Appbar, withTheme} from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
+import { withTheme } from 'react-native-paper';
 import PicGallery from './PicGallery';
 import MenuScroll from './MenuScrollContainer';
 
@@ -10,8 +11,8 @@ const style = StyleSheet.create({
   },
 });
 
-const RestaurantPage = ({theme, route}) => {
-  const [kit, setKit] = useState(0)
+const RestaurantPage = ({ route, navigation }) => {
+  const [kit, setKit] = useState(0);
   const data = route.params?.restaurantData;
 
   const changeGallery = index => {
@@ -21,7 +22,7 @@ const RestaurantPage = ({theme, route}) => {
   return (
     <View style={style.wrapper}>
       <PicGallery data={data} kitIndex={kit} />
-      <MenuScroll data={data} pressFn={changeGallery} />
+      <MenuScroll data={data} pressFn={changeGallery} nav={navigation}/>
     </View>
   );
 };

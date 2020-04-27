@@ -1,6 +1,7 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
-import { Text, Subheading, withTheme, Button } from 'react-native-paper';
+import { Subheading, withTheme, Button } from 'react-native-paper';
 import ItemNameForm from './ItemNameForm';
 import AllergyForm from './AllergyForm';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -21,13 +22,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   buttonContainer: {
-    margin: '5%'
+    margin: '5%',
   },
   inner: {
     flex: 1,
-    justifyContent: 'flex-end'
-  }
-})
+    justifyContent: 'flex-end',
+  },
+});
 
 class EditItemMenu extends React.Component {
   render() {
@@ -36,7 +37,7 @@ class EditItemMenu extends React.Component {
       <View style={{ flex: 1 }}>
         <ScrollView style={{ flex: 1 }}>
           <KeyboardAvoidingView
-            behavior='padding'
+            behavior="padding"
             keyboardVerticalOffset={keyboardVerticalOffset}
             style={{ flex: 1 }}>
             <View style={styles.container}>
@@ -64,7 +65,7 @@ class EditItemMenu extends React.Component {
           </KeyboardAvoidingView>
         </ScrollView>
       </View>
-    )
+    );
   }
 }
 

@@ -1,6 +1,7 @@
+/* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
-import {Searchbar, Appbar} from 'react-native-paper';
+import { View, StyleSheet, ScrollView } from 'react-native';
+import { Searchbar } from 'react-native-paper';
 import CategoryCard from './CategoryCard';
 import axios from 'axios';
 
@@ -62,7 +63,7 @@ export default class StartBrowsePage extends Component {
     const { navigation } = this.props;
     axios.get(`http://localhost:3000/category/${cuisine}`)
     .then(({ data }) => {
-      navigation.navigate('Restaurant List', { data }); 
+      navigation.navigate('Restaurant List', { data });
       });
   }
 

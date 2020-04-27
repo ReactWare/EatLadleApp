@@ -1,6 +1,7 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Card, Headline} from 'react-native-paper';
+import { StyleSheet, View } from 'react-native';
+import { Card, Headline } from 'react-native-paper';
 
 
 const style = StyleSheet.create({
@@ -31,7 +32,7 @@ const style = StyleSheet.create({
   },
 });
 
-const CategoryCard = ({cuisine, pressFn}) => {
+const CategoryCard = ({ cuisine, pressFn }) => {
   return (
     <Card style={style.cardContainer} elevation={2} onPress={() => pressFn(cuisine.name)}>
       <Card.Cover style={style.image} source={{uri: cuisine.image}} />

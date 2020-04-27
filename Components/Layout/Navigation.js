@@ -1,14 +1,16 @@
+/* eslint-disable prettier/prettier */
 import * as React from 'react';
-import {BottomNavigation, Text} from 'react-native-paper';
+import { BottomNavigation } from 'react-native-paper';
 import {NavigationContainer} from '@react-navigation/native';
 import StartBrowsePage from '../StartBrowsePage/StartBrowsePage';
-import OwnerMenuView from '../OwnerMenuView/OwnerMenuView'
+import OwnerMenuView from '../OwnerMenuView/OwnerMenuView';
 import RestaurantInfoPage from '../RestaurantInfoPage/RestaurantInfoPage';
-import RestaurantListingsPage from '../RestaurantListingsPage/RestaurantListingsPage'
+import RestaurantListingsPage from '../RestaurantListingsPage/RestaurantListingsPage';
 import { createStackNavigator } from '@react-navigation/stack';
-import PhoneAuth from '../OwnerMenuView/PhoneAuth'
+import PhoneAuth from '../OwnerMenuView/PhoneAuth';
 import AddItemMenu from '../OwnerMenuView/AddItemMenu';
 import EditItemMenu from '../OwnerMenuView/EditItemMenu';
+import PaymentScreen from '../Stripe/scenes/CardFormScreen';
 
 
 const headerOptions = {
@@ -16,31 +18,37 @@ const headerOptions = {
     backgroundColor: '#9c1f1f',
   },
   headerTintColor: '#fff',
-}
+};
 
-
-
-
-const RestaurantsInfoRoute = () => {
-  const RestaurantInfoStack = createStackNavigator();
+const MainRestaurantsScreen = () => {
+  const RestaurantStack = createStackNavigator();
   return (
-    <NavigationContainer independent>
-      <RestaurantInfoStack.Navigator initialRouteName="Home" screenOptions={headerOptions}>
-        <RestaurantInfoStack.Screen name="Home" component={StartBrowsePage} />
-        <RestaurantInfoStack.Screen name="Restaurant" component={RestaurantInfoPage} />
-        <RestaurantInfoStack.Screen name="Restaurant List" component={RestaurantListingsPage} />
-      </RestaurantInfoStack.Navigator>
-    </NavigationContainer>
+      <RestaurantStack.Navigator initialRouteName="Home" screenOptions={headerOptions}>
+        <RestaurantStack.Screen name="Home" component={StartBrowsePage} />
+        <RestaurantStack.Screen name="Restaurant" component={RestaurantInfoPage} />
+        <RestaurantStack.Screen name="Restaurant List" component={RestaurantListingsPage} />
+      </RestaurantStack.Navigator>
   );
 };
 
-const SearchRoute = () => <RestaurantListingsPage />;
+// FullRestaurantsRoute includes the payment component
+const FullRestaurantsRoute = () => {
+  const RootRestaurantStack = createStackNavigator();
+  return (
+    <NavigationContainer independent>
+      <RootRestaurantStack.Navigator mode="modal">
+        <RootRestaurantStack.Screen name="Main" component={MainRestaurantsScreen} options={{ headerShown: false }}/>
+        <RootRestaurantStack.Screen name="Payment" component={PaymentScreen} />
+      </RootRestaurantStack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 const OwnerRoute = () => {
   const OwnerStack = createStackNavigator();
   return (
     <NavigationContainer independent>
-      <OwnerStack.Navigator initialRouteName="Owner Menu">
+      <OwnerStack.Navigator initialRouteName="Owner Menu" screenOptions={headerOptions}>
         <OwnerStack.Screen name="Owner Menu" component={OwnerMenuView} />
         <OwnerStack.Screen name="Add Item" component={AddItemMenu} />
         <OwnerStack.Screen name="Edit Item" component={EditItemMenu} />
@@ -57,12 +65,11 @@ export default class MyComponent extends React.Component {
       index: 0,
       routes: [
         {key: 'browse', title: 'Browse', icon: 'food'},
-        {key: 'search', title: 'Search', icon: 'album'},
         {key: 'owner', title: 'Owner', icon: 'briefcase-outline'},
       ],
     };
     this._renderScene = BottomNavigation.SceneMap({
-      browse: RestaurantsInfoRoute,
+      browse: FullRestaurantsRoute,
 
       owner: OwnerRoute,
     });

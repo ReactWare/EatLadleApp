@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Card, List, Paragraph, Button } from 'react-native-paper';
@@ -13,10 +14,10 @@ const style = StyleSheet.create({
   },
   button: {
     justifyContent: 'center',
-  }
+  },
 });
 
-const MenuScroll = ({ item, pressFn, index, data }) => (
+const MenuScroll = ({ item, pressFn, index, data, nav }) => (
   <List.Accordion
     title={item.name}
     left={props => <List.Icon {...props} icon="food-fork-drink" />}
@@ -29,7 +30,7 @@ const MenuScroll = ({ item, pressFn, index, data }) => (
         ))}
       </Card.Content>
       <Card.Actions style={style.button}>
-        <Button mode="contained">CHECKOUT</Button>
+        <Button mode="contained" onPress={() => nav.navigate('Payment')}>CHECKOUT</Button>
       </Card.Actions>
     </Card>
   </List.Accordion>

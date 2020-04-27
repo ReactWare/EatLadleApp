@@ -1,6 +1,7 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
-import { Text, List, withTheme, Appbar, FAB } from 'react-native-paper';
+import { List, withTheme, Appbar, FAB } from 'react-native-paper';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import ListGroup from './ListGroup';
 import { addItem, getItems } from './firestore';
@@ -23,12 +24,12 @@ const styles = StyleSheet.create({
     margin: 16,
     right: 0,
     bottom: 0,
-  }
+  },
 });
 
 class OwnerMenuView extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       entreeList: [],
     };
@@ -36,12 +37,12 @@ class OwnerMenuView extends React.Component {
 
   updateState = (list) => {
     this.setState({
-      entreeList: list
-    })
+      entreeList: list,
+    });
   }
 
   componentDidMount() {
-    getItems(this.updateState)
+    getItems(this.updateState);
   }
 
   render() {
@@ -54,8 +55,6 @@ class OwnerMenuView extends React.Component {
             <Appbar.Header>
               <Appbar.Content title="Eat Ladle" />
             </Appbar.Header>
-            {/** Stripe (temporarily added here) */}
-            <CardFormScreen />
             <List.Section>
               <ListGroup
                 title="Entree"
@@ -87,7 +86,7 @@ class OwnerMenuView extends React.Component {
         <FAB
           style={styles.fabButton}
           icon="plus"
-          onPress={() => this.props.navigation.navigate("Add Item")}
+          onPress={() => this.props.navigation.navigate('Add Item')}
         />
       </View>
     );

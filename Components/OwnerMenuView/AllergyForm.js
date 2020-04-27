@@ -1,17 +1,18 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text, Switch, TextInput } from 'react-native-paper';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const allergyNames = ['Vegetarian', 'Vegan',  'Gluten Free', 'Nut Free', 'Egg Free', 'Shellfish Free'];
-const allergies = ['vegetarian', 'vegan', 'glutenFree', 'nutFree', 'eggFree', 'shellfishFree']
+const allergies = ['vegetarian', 'vegan', 'glutenFree', 'nutFree', 'eggFree', 'shellfishFree'];
 
 const styles = StyleSheet.create({
   toggles: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    margin: '1%'
+    margin: '1%',
   },
   container: {
     width: wp('50%'),
@@ -20,13 +21,13 @@ const styles = StyleSheet.create({
   textBox: {
     width: wp('85%'),
     height: hp('5.5%'),
-    alignSelf: 'center'
-  }
-})
+    alignSelf: 'center',
+  },
+});
 
 export default class AllergyForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       vegetarian: false,
       vegan: false,
@@ -35,13 +36,13 @@ export default class AllergyForm extends React.Component {
       shellfishFree: false,
       glutenFree: false,
       other: '',
-    }
+    };
   }
 
   onToggle = (item) => {
     this.setState({
-      [item]: !this.state[item]
-    })
+      [item]: !this.state[item],
+    });
   }
 
   updateAllergy = (obj) => {
@@ -50,9 +51,9 @@ export default class AllergyForm extends React.Component {
 
   updateText = (text) => {
     this.setState({
-      other: text
-    })
-    this.updateAllergy(this.state)
+      other: text,
+    });
+    this.updateAllergy(this.state);
   }
 
   render() {
@@ -68,7 +69,7 @@ export default class AllergyForm extends React.Component {
         })}
         <View>
           <Text>Other</Text>
-          <TextInput 
+          <TextInput
             style={styles.textBox}
             mode="outlined"
             label="Enter Other Allergy Info Here"
