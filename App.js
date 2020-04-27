@@ -8,9 +8,12 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
+import PropTypes from 'prop-types';
 
 import firebase from '@react-native-firebase/app';
 import Skeleton from './Components/Layout/Skeleton';
+import stripe from 'tipsi-stripe';
+import { TEST_PUBLISHABLE_KEY } from './client.config';
 
 // TODO(you): import any additional firebase services that you require for your app, e.g for auth:
 //    1) install the npm package: `yarn add @react-native-firebase/auth@alpha` - you do not need to
@@ -29,9 +32,20 @@ const firebaseCredentials = Platform.select({
   android: 'https://invertase.link/firebase-android',
 });
 
-type Props = {};
+// Provide a Stripe publishable key to Stripe SDK
+stripe.setOptions({
+  publishableKey: TEST_PUBLISHABLE_KEY
+});
 
-const App = ({theme}) => <Skeleton theme={theme} />;
+const App = ({ theme }) => {
+  return (
+    <Skeleton theme={theme} />
+  );
+};
+
+App.propTypes = {
+  theme: PropTypes.object.isRequired
+};
 
 export default App;
 

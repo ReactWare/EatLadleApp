@@ -10,12 +10,16 @@ import PhoneAuth from '../OwnerMenuView/PhoneAuth'
 import AddItemMenu from '../OwnerMenuView/AddItemMenu';
 import EditItemMenu from '../OwnerMenuView/EditItemMenu';
 
+
 const headerOptions = {
   headerStyle: {
     backgroundColor: '#9c1f1f',
   },
   headerTintColor: '#fff',
 }
+
+
+
 
 const RestaurantsInfoRoute = () => {
   const RestaurantInfoStack = createStackNavigator();

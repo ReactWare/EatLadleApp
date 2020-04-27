@@ -10,6 +10,9 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 # $RNFirebaseAsStaticFramework = true
 
 target 'EatLadleApp' do
+  # Stripe
+  pod 'Stripe'
+  
   # Pods for EatLadleApp
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"

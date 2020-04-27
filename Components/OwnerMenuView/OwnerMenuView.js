@@ -5,6 +5,9 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import ListGroup from './ListGroup';
 import { addItem, getItems } from './firestore';
 
+// Stripe (temporarily added here)
+import CardFormScreen from '../Stripe/scenes/CardFormScreen';
+
 const styles = StyleSheet.create({
   container: {
     height: hp('100%'),
@@ -51,6 +54,8 @@ class OwnerMenuView extends React.Component {
             <Appbar.Header>
               <Appbar.Content title="Eat Ladle" />
             </Appbar.Header>
+            {/** Stripe (temporarily added here) */}
+            <CardFormScreen />
             <List.Section>
               <ListGroup
                 title="Entree"
