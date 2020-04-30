@@ -1,6 +1,7 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
-import {ScrollView, StyleSheet, View} from 'react-native';
-import {Card, Paragraph, Title, Caption} from 'react-native-paper';
+import { ScrollView, StyleSheet } from 'react-native';
+import { Card, Paragraph, Title, Caption } from 'react-native-paper';
 
 const style = StyleSheet.create({
   container: {
@@ -12,15 +13,15 @@ const style = StyleSheet.create({
     marginTop: 10,
     justifyContent: 'center',
     paddingLeft: 20,
-  }
-})
+  },
+});
 
 const RestaurantListingsPage = ({ route, navigation }) => {
   const data = route.params?.data;
   return (
     <ScrollView style={style.container}>
       {data.map((item, index) => (
-        <Card 
+        <Card
           style={style.cardContainer}
           elevation={index + 1}
           onPress={() => navigation.navigate('Restaurant', { restaurantData: item})}
@@ -33,7 +34,7 @@ const RestaurantListingsPage = ({ route, navigation }) => {
         </Card>
       ))}
     </ScrollView>
-  )
-}
+  );
+};
 
 export default RestaurantListingsPage;

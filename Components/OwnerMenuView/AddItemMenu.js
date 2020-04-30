@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { Text, Subheading, withTheme, Button } from 'react-native-paper';
@@ -22,13 +23,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   buttonContainer: {
-    margin: '5%'
+    margin: '5%',
   },
   inner: {
     flex: 1,
-    justifyContent: 'flex-end'
-  }
-})
+    justifyContent: 'flex-end',
+  },
+});
 
 class AddItemMenu extends React.Component {
   state = {
@@ -40,18 +41,18 @@ class AddItemMenu extends React.Component {
 
   updateState = (name, value) => {
     this.setState({
-      [name]: value
-    })
+      [name]: value,
+    });
   }
 
   onItemAdded = (menuList) => {
-    console.log(menuList)
+    console.log(menuList);
   }
 
   updateAllergy = (obj) => {
     this.setState({
-      allergies: obj
-    })
+      allergies: obj,
+    });
   }
 
   componentDidMount() {
@@ -64,7 +65,7 @@ class AddItemMenu extends React.Component {
       <View style={{ flex: 1 }}>
         <ScrollView style={{ flex: 1 }}>
           <KeyboardAvoidingView
-            behavior='padding'
+            behavior="padding"
             keyboardVerticalOffset={keyboardVerticalOffset}
             style={{ flex: 1 }}>
             <View style={styles.container}>

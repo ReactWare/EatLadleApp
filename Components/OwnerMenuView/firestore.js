@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import firestore from '@react-native-firebase/firestore';
 
 export function addItem(data, addComplete) {
@@ -5,7 +6,7 @@ export function addItem(data, addComplete) {
     .collection('knMerchants')
     .add({
       name: data.name,
-      address: data.address
+      address: data.address,
     }).then((data) => addComplete(data))
     .catch((error) => console.log(error));
 }
@@ -16,11 +17,11 @@ export async function getItems(menuRetrieved) {
 
   var snapshot = await firestore()
     .collection('knMerchants')
-    .get()
+    .get();
 
     snapshot.forEach((doc) => {
-      menuList.push(doc.data())
-    })
+      menuList.push(doc.data());
+    });
 
   menuRetrieved(menuList);
 }
